@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:explore_world/colors.dart'; // Ensure this import path is correct and contains the color definitions
 
-import '../../beach_screen.dart';
+import '../../beach_screen_main.dart';
 import 'adventureScreen.dart';
+import 'beachScreen.dart';
 import 'foodScreen.dart';
 import 'heritageScreen.dart';
 import 'mostLovedPlace.dart';
@@ -53,7 +54,7 @@ class _KeralaHomeScreenState extends State<KeralaHomeScreen> with SingleTickerPr
           children: [
             Mostlovedplace(),
             AdventureScreen(),
-            BeachScreen(),
+            Beachscreen(),
             Foodscreen(),
             Romanticscreen(),
             Partandnight(),

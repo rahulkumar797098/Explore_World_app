@@ -1,11 +1,19 @@
 import 'package:explore_world/screen/all_state/kerla/adventureScreen.dart';
+import 'package:explore_world/screen/all_state/kerla/beachScreen.dart';
+import 'package:explore_world/screen/all_state/kerla/foodScreen.dart';
 import 'package:explore_world/screen/all_state/kerla/kerala_home_screen.dart';
 import 'package:explore_world/screen/all_state/kerla/mostLovedPlace.dart';
+import 'package:explore_world/screen/beach_details_screen.dart';
+import 'package:explore_world/screen/beach_screen_main.dart';
 import 'package:explore_world/screen/bottom_navigation_screen.dart';
 import 'package:explore_world/screen/categories_screen.dart';
+import 'package:explore_world/screen/favorits_screen.dart';
 import 'package:explore_world/screen/home_screen.dart';
+import 'package:explore_world/screen/international_screen.dart';
 import 'package:explore_world/screen/national_screen.dart';
+import 'package:explore_world/screen/splash_screen.dart';
 import 'package:explore_world/screen/start_screen.dart';
+import 'package:explore_world/screen/user_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -25,9 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: KeralaHomeScreen(
-
-      )
+      home: const SplashScreen()
     );
   }
 }

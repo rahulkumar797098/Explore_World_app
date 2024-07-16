@@ -8,6 +8,7 @@ class ImageSlider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Widget> sliderItems = [
+
       // First
       Card(
         child: Column(
@@ -171,7 +172,7 @@ class ImageSlider extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "natural beauty,adventure activities",
+                    "Natural beauty,adventure",
                     style: TextStyle(fontSize: 16, fontFamily: "myFontFirst"),
                   ),
                   Row(
@@ -198,7 +199,7 @@ class ImageSlider extends StatelessWidget {
                     size: 16,
                     color: appDeep,
                   ),
-                  Text("Ladakh , Jammu and Kashmir",
+                  Text("Ladakh,Jammu and Kashmir",
                       style: TextStyle(fontSize: 16, fontFamily: "myFontFirst"))
                 ],
               ),
@@ -206,6 +207,7 @@ class ImageSlider extends StatelessWidget {
           ],
         ),
       ),
+      // Third
       Card(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -296,7 +298,7 @@ class ImageSlider extends StatelessWidget {
                     size: 16,
                     color: appDeep,
                   ),
-                  Text("Kashmir , northernmost geographical ",
+                  Text("Kashmir,northernmost geographical ",
                       style: TextStyle(fontSize: 16, fontFamily: "myFontFirst"))
                 ],
               ),
@@ -304,6 +306,7 @@ class ImageSlider extends StatelessWidget {
           ],
         ),
       ),
+      // Fourth
       Card(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -367,7 +370,7 @@ class ImageSlider extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "natural beauty,adventure activities",
+                    "natural beauty,",
                     style: TextStyle(fontSize: 16, fontFamily: "myFontFirst"),
                   ),
                   Row(
@@ -402,6 +405,7 @@ class ImageSlider extends StatelessWidget {
           ],
         ),
       ),
+
     ];
 
     return CarouselSlider(

@@ -66,7 +66,9 @@ flutter:
      - assets/state/
      - assets/union/
      - assets/kerala/
-  #   - images/a_dot_ham.jpeg
+     - assets/favorite/
+     - assets/international/
+     - assets/beach/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

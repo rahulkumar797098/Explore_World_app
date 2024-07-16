@@ -1,4 +1,4 @@
-import 'package:explore_world/screen/beach_screen.dart';
+import 'package:explore_world/screen/beach_screen_main.dart';
 import 'package:explore_world/widgets/image_slider.dart';
 import 'package:explore_world/widgets/search.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 50,
+              height: 40,
             ),
             // .............Header............//
             Padding(
@@ -85,11 +85,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Search(),
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             const ImageSlider(),
             const SizedBox(
-              height: 30,
+              height: 10,
             ),
 
             // Categories
@@ -121,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     return GestureDetector(
                       onTap: (){
                         if (categories[index]["title"] == "Beach") {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => BeachScreen()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => BeachScreenMain()));
                         }  
                         
                       },

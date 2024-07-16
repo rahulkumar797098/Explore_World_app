@@ -1,0 +1,143 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../colors.dart';
+
+class Favoritecard extends StatefulWidget {
+  final String placeName;
+  final String country;
+  final String rating;
+  final String image;
+
+  const Favoritecard(
+      {super.key,
+      required this.placeName,
+      required this.country,
+      required this.rating,
+      required this.image});
+
+  @override
+  State<Favoritecard> createState() => _FavoritecardState();
+}
+
+class _FavoritecardState extends State<Favoritecard> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: SizedBox(
+        height: 200,
+        child: Card(
+          elevation: 4,
+          shadowColor:appLight,
+          child: Stack(
+            children: [
+              // Image Part
+              Container(
+                height: double.infinity,
+                width: 200,
+                decoration:  BoxDecoration(
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(10),
+                      bottomLeft: Radius.circular(10)),
+                  image: DecorationImage(
+                    image: AssetImage(widget.image),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              // Text Part
+              Positioned(
+                top: 60,
+                left: 210,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                     Row(
+                      children: [
+                        const Icon(
+                          Icons.location_on_sharp,
+                          size: 20,
+                          color: appDeep,
+                        ),
+                        const SizedBox(width: 5),
+                        Text( widget.placeName,
+                          style: const TextStyle(
+                            fontFamily: "myFontFirst",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(
+                         "assets/icon/globe.png",
+                          height: 20,
+                          width: 20,
+                        ),
+                        const SizedBox(width: 5),
+                         Text(
+                          widget.country,
+                          style: const TextStyle(
+                            fontFamily: "myFontFirst",
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
+                      widget.rating,
+                      style: const TextStyle(fontSize: 25, color: Colors.orange),
+                    )
+                  ],
+                ),
+              ),
+
+              // Delete Icon
+              Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topRight: Radius.circular(10),
+                              bottomLeft: Radius.circular(10)),
+                          color: Colors.red),
+                      child: const Icon(
+                        Icons.delete,
+                        color: appWhite,
+                        size: 30,
+                      ))),
+              // Heart Icon
+              Positioned(
+                  bottom: 0,
+                  right: 0,
+                  child: Container(
+                      height: 40,
+                      width: 40,
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
+                          color: appVeryLight),
+                      child: const Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                        size: 30,
+                      ))),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
