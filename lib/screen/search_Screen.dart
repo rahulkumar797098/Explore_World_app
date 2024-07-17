@@ -1,3 +1,4 @@
+import 'package:explore_world/widgets/search.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,9 +13,12 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Search"),
-      ),
+      appBar: AppBar(title: Text("Search Your Destionatin " , style: TextStyle(fontFamily: "myFontFirst" , fontWeight: FontWeight.bold , fontSize: 25),),),
+      body: Column(
+        children: [
+          Search()
+        ],
+      )
     );
   }
 }

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:explore_world/colors.dart';
+import 'package:explore_world/screen/start_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -6,6 +9,11 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    Timer(Duration(seconds:2),(){
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (contex)=> StartScreen()));
+    });
+
     return Scaffold(
       backgroundColor: appDeep,
       body: Center(
@@ -15,7 +23,7 @@ class SplashScreen extends StatelessWidget {
             children: [
               Positioned(
                 left: 130,
-                top: 400,
+                top: 350,
                 child: Image.asset(
                   "assets/icon/spIcon.png",
                   height: 150,
@@ -24,7 +32,7 @@ class SplashScreen extends StatelessWidget {
               ),
               const Positioned(
                   left: 300,
-                  top: 500,
+                  top: 480,
                   child: Text(
                     "World",
                     style: TextStyle(
@@ -32,9 +40,9 @@ class SplashScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                         fontFamily: "myFontFirst"),
                   )),
-              Positioned(
+              const Positioned(
                   left: 20,
-                  top: 400,
+                  top: 340,
                   child: Text(
                     "Explore",
                     style: TextStyle(

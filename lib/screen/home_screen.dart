@@ -1,4 +1,6 @@
 import 'package:explore_world/screen/beach_screen_main.dart';
+import 'package:explore_world/screen/camp_screen_main.dart';
+import 'package:explore_world/screen/mountain_screen_main.dart';
 import 'package:explore_world/widgets/image_slider.dart';
 import 'package:explore_world/widgets/search.dart';
 import 'package:flutter/material.dart';
@@ -119,11 +121,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   itemCount: categories.length,
                   itemBuilder: (BuildContext context, int index) {
                     return GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         if (categories[index]["title"] == "Beach") {
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => BeachScreenMain()));
-                        }  
-                        
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const BeachScreenMain()));
+                        } else if (categories[index]["title"] == "Camp") {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const CampScreenMain()));
+                        }else if (categories[index]["title"] == "Mountain") {
+                          Navigator.push(context, MaterialPageRoute(builder: (contex)=> MountainScreenMain())) ;
+
+                        }
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(right: 10),

@@ -6,53 +6,53 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
-class BeachScreenMain extends StatefulWidget {
-  const BeachScreenMain({super.key});
+class CampScreenMain extends StatefulWidget {
+  const CampScreenMain({super.key});
 
   @override
-  State<BeachScreenMain> createState() => _BeachScreenMainState();
+  State<CampScreenMain> createState() => _CampScreenMainState();
 }
 
-class _BeachScreenMainState extends State<BeachScreenMain> {
+class _CampScreenMainState extends State<CampScreenMain> {
   List<Map<String, dynamic>> beach = [
     {
-      "place": "Radhanagar",
+      "place": "Rishikesh",
       "country": "India",
       "rating": "★★★★★",
-      "image": "assets/beach/radha.jpg"
+      "image": "assets/camp/RISIcamping.jpg"
     },
     {
-      "place": "Palolem",
+      "place": "Spiti Valley",
       "country": "India",
       "rating": "★★★★★",
-      "image": "assets/beach/polam.webp"
+      "image": "assets/camp/spiti-camping.jpg"
     },
   ];
   List<Map<String, dynamic>> recomm = [
     {
-      "place": "Bondi",
-      "country": "Australia",
+      "place": "Yellowstone",
+      "country": "USA",
       "rating": "★★★★★",
-      "image": "assets/beach/Bondi.jpg"
+      "image": "assets/camp/usacamping.jpeg"
     },
     {
-      "place": "Copacabana",
-      "country": "Brazil",
+      "place": "Banff",
+      "country": "Canada",
       "rating": "★★★★★",
-      "image": "assets/beach/Copacabana.webp"
+      "image": "assets/camp/Banff-Camping.jpg"
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Beach" , style: TextStyle(fontFamily: "myFontFirst"),),),
+      appBar: AppBar(title: Text("Camping" , style: TextStyle(fontFamily: "myFontFirst"),),),
       body: Column(
         children: [
-         const SizedBox(height: 10),
-         const  Search(),
-         const SizedBox(height: 20),
-         const Padding(
+          const SizedBox(height: 10),
+          const  Search(),
+          const SizedBox(height: 20),
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
