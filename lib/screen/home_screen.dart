@@ -1,9 +1,13 @@
 import 'package:explore_world/screen/beach_screen_main.dart';
 import 'package:explore_world/screen/camp_screen_main.dart';
 import 'package:explore_world/screen/mountain_screen_main.dart';
+import 'package:explore_world/screen/user_screen.dart';
 import 'package:explore_world/widgets/image_slider.dart';
 import 'package:explore_world/widgets/search.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 import '../colors.dart';
 
@@ -30,154 +34,269 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // ..........BODY.................//
-        body: Padding(
-      padding: const EdgeInsets.only(left: 16),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 40,
-            ),
-            // .............Header............//
-            Padding(
-              padding: const EdgeInsets.only(right: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                      height: 40,
-                      width: 40,
-                      child: Image.asset(
-                        "assets/icon/menu.png",
-                      )),
-                  Container(
-                      height: 40,
-                      width: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(500),
-                          image: const DecorationImage(
-                              image: AssetImage(
-                                "assets/icon/devrahul.jpg",
-                              ),
-                              fit: BoxFit.cover)))
-                ],
+      appBar: AppBar(
+        leading: Builder(
+            builder: (context) {
+              return IconButton(
+                icon: Image.asset("assets/icon/menu.png"),
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
+              );
+            }
+        ),
+        actions: [
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => UserScreen()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: Container(
+                height: 40,
+                width: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(500),
+                  image: const DecorationImage(
+                    image: AssetImage("assets/icon/devrahul.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Destination Dreams",
-                  style: TextStyle(fontSize: 30, fontFamily: "myFontCu"),
-                ),
-                Text(
-                  "Turn your travel dreams into reality.",
-                  style: TextStyle(fontSize: 22, fontFamily: "myFontFirst"),
-                )
-              ],
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            const Search(),
-            const SizedBox(
-              height: 10,
-            ),
-            const ImageSlider(),
-            const SizedBox(
-              height: 10,
-            ),
-
-            // Categories
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 16),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 40),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "categories",
-                    style: TextStyle(fontFamily: "myFontFirst", fontSize: 30),
+                    "Destination Dreams",
+                    style: TextStyle(fontSize: 30, fontFamily: "myFontCu"),
                   ),
-                  Text("See All",
-                      style: TextStyle(
-                          fontFamily: "myFontFirst",
-                          fontSize: 20,
-                          color: appBlue)),
+                  Text(
+                    "Turn your travel dreams into reality.",
+                    style: TextStyle(fontSize: 22, fontFamily: "myFontFirst"),
+                  ),
                 ],
               ),
-            ),
-            SizedBox(
-              height: 140,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 5.0),
-                child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  itemCount: categories.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return GestureDetector(
-                      onTap: () {
-                        if (categories[index]["title"] == "Beach") {
-                          Navigator.push(
+              const SizedBox(height: 20),
+              const Search(),
+              const SizedBox(height: 10),
+              const ImageSlider(),
+              const SizedBox(height: 10),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Categories",
+                      style: TextStyle(fontFamily: "myFontFirst", fontSize: 30),
+                    ),
+                    Text("See All",
+                      style: TextStyle(
+                        fontFamily: "myFontFirst",
+                        fontSize: 20,
+                        color: appBlue,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 140,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 5.0),
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: categories.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return GestureDetector(
+                        onTap: () {
+                          if (categories[index]["title"] == "Beach") {
+                            Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const BeachScreenMain()));
-                        } else if (categories[index]["title"] == "Camp") {
-                          Navigator.push(
+                              MaterialPageRoute(builder: (context) => const BeachScreenMain()),
+                            );
+                          } else if (categories[index]["title"] == "Camp") {
+                            Navigator.push(
                               context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CampScreenMain()));
-                        }else if (categories[index]["title"] == "Mountain") {
-                          Navigator.push(context, MaterialPageRoute(builder: (contex)=> MountainScreenMain())) ;
-
-                        }
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 100,
-                              width: 100,
-                              decoration: const BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: appMimLight,
-                              ),
-                              child: CircleAvatar(
-                                backgroundColor: Colors.transparent,
-                                child: ClipOval(
-                                  child: Image.asset(
-                                    categories[index]["image"],
-                                    fit: BoxFit.cover,
-                                    width: 80, // Adjust as needed
-                                    height: 80, // Adjust as needed
+                              MaterialPageRoute(builder: (context) => const CampScreenMain()),
+                            );
+                          } else if (categories[index]["title"] == "Mountain") {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MountainScreenMain()),
+                            );
+                          }
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                height: 100,
+                                width: 100,
+                                decoration: const BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: appMimLight,
+                                ),
+                                child: CircleAvatar(
+                                  backgroundColor: Colors.transparent,
+                                  child: ClipOval(
+                                    child: Image.asset(
+                                      categories[index]["image"],
+                                      fit: BoxFit.cover,
+                                      width: 80,
+                                      height: 80,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Text(
-                              categories[index]["title"],
-                              style: const TextStyle(
-                                  fontSize: 20, fontFamily: "myFontFirst"),
-                            )
-                          ],
+                              Text(
+                                categories[index]["title"],
+                                style: const TextStyle(fontSize: 20, fontFamily: "myFontFirst"),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    );
-                  },
+                      );
+                    },
+                  ),
                 ),
               ),
+            ],
+          ),
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: [
+            DrawerHeader(
+              decoration:const BoxDecoration(
+                color: appVeryLight ,
+                boxShadow: [BoxShadow(color : appDeep , blurRadius: 5)]
+              ) ,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset("assets/icon/spIcon.png" , height: 100 , width: 100,),
+                  const Text("Explore \nWorld" , style: TextStyle(fontSize: 25 , fontWeight: FontWeight.bold , fontFamily: "myFontFirst"),)
+                ],
+              ),
             ),
+            ListTile(
+              leading: Icon(Icons.account_circle , size: 30,),
+              title: Text("Account" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.history , size: 30,),
+              title: Text("Booking History" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.card_membership , size: 30,),
+              title: Text("Membership" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+
+            ListTile(
+              leading: Icon(Icons.account_balance_wallet_rounded , size: 30,),
+              title: Text("payment history" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.schedule , size: 30,),
+              title: Text("Travel Schedule" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.notifications , size: 30,),
+              title: Text("Notifications" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.share , size: 30,),
+              title: Text("Refer & Earn" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.settings , size: 30,),
+              title: Text("Setting" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.live_help_rounded , size: 30,),
+              title: Text("About" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.support_agent_outlined , size: 30,),
+              title: Text("Support" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ) ,
+
+            ListTile(
+              leading: Icon(Icons.exit_to_app , size: 30,),
+              title: Text("Exit" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            ),
+
+            ListTile(
+              leading: Icon(Icons.logout , size: 30,),
+              title: Text("Logout" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.pop(context);
+              },
+            )
+
+            // Add more drawer items here
           ],
         ),
       ),
-    ));
+    );
   }
 }

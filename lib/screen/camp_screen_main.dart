@@ -127,7 +127,7 @@ class _CampScreenMainState extends State<CampScreenMain> {
                   onTap: (){
                     if (recomm[index]["place"] == "Bondi") {
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return BeachDetailsScreen();
+                        return BeachDetailsScreen(location: '', country: '', flightDet: '', cost: '', totalTourist: '', about: '', beachTitle: '', image: '',);
                       }));
 
                     }

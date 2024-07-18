@@ -128,7 +128,7 @@ class _MountainScreenMainState extends State<MountainScreenMain> {
                   onTap: (){
                     if (recomm[index]["place"] == "Bondi") {
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return BeachDetailsScreen();
+                        return BeachDetailsScreen(location: '', country: '', flightDet: '', cost: '', totalTourist: '', about: '', beachTitle: '', image: '',);
                       }));
 
                     }
