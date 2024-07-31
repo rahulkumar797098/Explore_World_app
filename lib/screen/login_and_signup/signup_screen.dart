@@ -1,5 +1,6 @@
 import 'package:explore_world/colors.dart';
 import 'package:explore_world/screen/login_and_signup/login_screen.dart';
+import 'package:explore_world/service/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -11,6 +12,43 @@ class SignupScreen extends StatefulWidget {
 
 class _SignupScreenState extends State<SignupScreen> {
   bool isVisible = false;
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  TextEditingController confirmController = TextEditingController();
+
+  final AuthService _authService = AuthService();
+
+  // Signup function
+  Future<void> _signUp() async {
+    final name = nameController.text.trim();
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+    final confirmPassword = confirmController.text.trim();
+
+    // Check if passwords match
+    if (password != confirmPassword) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Passwords do not match")),
+      );
+      return;
+    }
+
+    // Call sign up method from AuthService
+    final result = await _authService.signUp(email, password);
+
+    // Navigate to LoginScreen on success or show error message
+    if (result != null) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Sign Up Failed")),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +61,8 @@ class _SignupScreenState extends State<SignupScreen> {
               width: double.infinity,
               decoration: const BoxDecoration(
                 color: appColor,
-                borderRadius: BorderRadius.only(bottomLeft: Radius.circular(150)),
+                borderRadius:
+                BorderRadius.only(bottomLeft: Radius.circular(150)),
               ),
               child: Stack(
                 children: [
@@ -68,13 +107,13 @@ class _SignupScreenState extends State<SignupScreen> {
                 ],
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
+            const SizedBox(height: 20),
+
             // Name
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: nameController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: textFieldColor,
@@ -107,10 +146,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
             ),
+
             // Email
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: textFieldColor,
@@ -143,10 +184,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
             ),
+
             // Password
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: passwordController,
                 obscureText: !isVisible,
                 decoration: InputDecoration(
                   filled: true,
@@ -178,7 +221,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     color: appWhite,
                   ),
                   suffixIcon: IconButton(
-                    icon: Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                    icon: Icon(
+                        isVisible ? Icons.visibility : Icons.visibility_off),
                     onPressed: () {
                       setState(() {
                         isVisible = !isVisible;
@@ -188,10 +232,12 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ),
             ),
+
             // Confirm Password
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextField(
+                controller: confirmController,
                 obscureText: !isVisible,
                 decoration: InputDecoration(
                   filled: true,
@@ -225,18 +271,19 @@ class _SignupScreenState extends State<SignupScreen> {
                   suffixIcon: IconButton(
                     onPressed: () {
                       setState(() {
-                        isVisible = !isVisible ;
+                        isVisible = !isVisible;
                       });
                     },
-                    icon:  Icon(isVisible ? Icons.visibility : Icons.visibility_off),
+                    icon: Icon(
+                        isVisible ? Icons.visibility : Icons.visibility_off),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 20,
-            ),
-            // This Container is inside Expanded to take remaining space
+
+            const SizedBox(height: 20),
+
+            // Sign Up and Social Media Buttons
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
@@ -244,16 +291,16 @@ class _SignupScreenState extends State<SignupScreen> {
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: appLight,
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(150)),
+                  borderRadius:
+                  BorderRadius.only(topRight: Radius.circular(150)),
                 ),
                 child: Stack(
                   children: [
                     Column(
                       children: [
-                        const SizedBox(height: 15,),
+                        const SizedBox(height: 15),
                         Row(
                           children: [
-
                             ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
@@ -276,7 +323,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                             ElevatedButton(
-                              onPressed: () {},
+                              onPressed: _signUp,
                               style: ElevatedButton.styleFrom(
                                 shape: const RoundedRectangleBorder(
                                   borderRadius: BorderRadius.only(
@@ -292,20 +339,11 @@ class _SignupScreenState extends State<SignupScreen> {
                             ),
                           ],
                         ),
-
-                        const SizedBox(
-                          height: 20,
-                        ),
-
-                        const SizedBox(
-                          height: 20,
-                        ),
+                        const SizedBox(height: 20),
+                        const SizedBox(height: 20),
                       ],
                     ),
-
-                    const SizedBox(
-                      height: 20,
-                    ),
+                    const SizedBox(height: 20),
                     Positioned(
                       left: 0,
                       top: 80,
@@ -395,7 +433,8 @@ class _SignupScreenState extends State<SignupScreen> {
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginScreen()),
                               );
                             },
                             style: OutlinedButton.styleFrom(

@@ -18,9 +18,17 @@ import 'package:explore_world/screen/splash_screen.dart';
 import 'package:explore_world/screen/start_screen.dart';
 import 'package:explore_world/screen/support_screen.dart';
 import 'package:explore_world/screen/user_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized() ;
+  await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform
+  );
+
   runApp(const MyApp());
 }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "6345327773",
+    "project_id": "exploreworld-6d854",
+    "storage_bucket": "exploreworld-6d854.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6345327773:android:5ee6644dc2a22133c44074",
+        "android_client_info": {
+          "package_name": "com.example.explore_world"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqjPV_dLcXjxsjEVGZgDzFNXK1KMkMNUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
