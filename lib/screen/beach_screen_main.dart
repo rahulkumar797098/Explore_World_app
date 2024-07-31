@@ -1,7 +1,6 @@
 import 'package:explore_world/screen/beach_details_screen.dart';
 import 'package:explore_world/widgets/main_Card.dart';
 import 'package:explore_world/widgets/search.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
@@ -109,13 +108,15 @@ class _BeachScreenMainState extends State<BeachScreenMain> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (contex) => BeachDetailsScreen(
+                              builder: (contex) => const BeachDetailsScreen(
                                   location: "Palolem Beach, Goa, ",
                                   country: "India",
-                                  flightDet: "Nearest airport is Dabolim Airport",
+                                  flightDet:
+                                      "Nearest airport is Dabolim Airport",
                                   cost: "30K",
                                   totalTourist: "1.5 Million",
-                                  about: "Palolem is renowned for its pristine sandy beach lined with coconut palms and surrounded by scenic rocky outcrops. The clear blue waters and tranquil atmosphere make it a perfect getaway for relaxation.Visitors to Palolem Beach can enjoy a variety of activities such as swimming, sunbathing, and water sports like kayaking and boat trips. Yoga classes and wellness retreats are also popular options.",
+                                  about:
+                                      "Palolem is renowned for its pristine sandy beach lined with coconut palms and surrounded by scenic rocky outcrops. The clear blue waters and tranquil atmosphere make it a perfect getaway for relaxation.Visitors to Palolem Beach can enjoy a variety of activities such as swimming, sunbathing, and water sports like kayaking and boat trips. Yoga classes and wellness retreats are also popular options.",
                                   beachTitle: "Explore Palolem Beach",
                                   image: "assets/beach/polam.webp")));
                     }
@@ -193,11 +194,11 @@ class _BeachScreenMainState extends State<BeachScreenMain> {
                             location: 'Copacabana Beach part of Rio de Janeiro',
                             country: 'Brazil',
                             flightDet:
-                            'Nearest airport Tom Jobim International Airport.',
+                                'Nearest airport Tom Jobim International Airport.',
                             cost: '70K',
                             totalTourist: '1 Million',
                             about:
-                            ' Copacabana Beach\'s scenic beauty, with its expansive sandy shores and lively oceanfront promenade, creates a captivating backdrop for relaxation and exploration.sunbathing and water sports to exploring local markets and enjoying nightlife, Copacabana offers a wealth of activities to suit every traveler\'s interests.',
+                                ' Copacabana Beach\'s scenic beauty, with its expansive sandy shores and lively oceanfront promenade, creates a captivating backdrop for relaxation and exploration.sunbathing and water sports to exploring local markets and enjoying nightlife, Copacabana offers a wealth of activities to suit every traveler\'s interests.',
                             beachTitle: 'Explore Copacabana Beach',
                             image: 'assets/beach/Copacabana.webp',
                           ),

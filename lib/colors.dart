@@ -2,6 +2,7 @@ import 'dart:ui';
 
 const Color appWhite = Color(0xffffffff);
 const Color appBlack = Color(0xff0c0b0b);
+const Color textFieldColor = Color(0xfbf8d581);
 const Color appColor = Color(0xff4bff9e);
 const Color appDeep = Color(0xff1aff84);
 const Color appLight = Color(0xff93ffc5);

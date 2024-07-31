@@ -1,12 +1,12 @@
 import 'package:explore_world/screen/beach_screen_main.dart';
 import 'package:explore_world/screen/camp_screen_main.dart';
 import 'package:explore_world/screen/mountain_screen_main.dart';
+import 'package:explore_world/screen/support_screen.dart';
 import 'package:explore_world/screen/user_screen.dart';
 import 'package:explore_world/widgets/image_slider.dart';
 import 'package:explore_world/widgets/search.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 
 
 import '../colors.dart';
@@ -134,7 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           } else if (categories[index]["title"] == "Mountain") {
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => MountainScreenMain()),
+                              MaterialPageRoute(builder: (context) =>const MountainScreenMain()),
                             );
                           }
                         },
@@ -197,97 +197,85 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle , size: 30,),
-              title: Text("Account" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.account_circle , size: 30, color: Colors.orange,),
+              title: const Text("Account" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.history , size: 30,),
-              title: Text("Booking History" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.history , size: 30,color: Colors.orange),
+              title: const Text("Booking History" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.card_membership , size: 30,),
-              title: Text("Membership" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.card_membership , size: 30, color: Colors.orange),
+              title: const Text("Membership" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
-
             ListTile(
-              leading: Icon(Icons.account_balance_wallet_rounded , size: 30,),
-              title: Text("payment history" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.account_balance_wallet_rounded , size: 30, color: Colors.orange),
+              title: const Text("payment history" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.schedule , size: 30,),
-              title: Text("Travel Schedule" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.schedule , size: 30, color: Colors.orange),
+              title: const Text("Travel Schedule" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.notifications , size: 30,),
-              title: Text("Notifications" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.notifications , size: 30, color: Colors.orange),
+              title: const Text("Notifications" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.share , size: 30,),
-              title: Text("Refer & Earn" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading: const Icon(Icons.share , size: 30, color: Colors.orange ),
+              title:const Text("Refer & Earn" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.settings , size: 30,),
-              title: Text("Setting" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading:const Icon(Icons.settings , size: 30, color: Colors.orange),
+              title: const Text("Setting" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.live_help_rounded , size: 30,),
-              title: Text("About" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading:const Icon(Icons.live_help_rounded , size: 30, color: Colors.orange ),
+              title:const Text("About" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.support_agent_outlined , size: 30,),
-              title: Text("Support" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading:const Icon(Icons.support_agent_outlined , size: 30, color: Colors.orange),
+              title:const Text("Support" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => SupportScreen()));
+              },
+            ) ,
+            ListTile(
+              leading:const Icon(Icons.exit_to_app , size: 30, color: Colors.orange ),
+              title:const Text("Exit" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
             ) ,
-
             ListTile(
-              leading: Icon(Icons.exit_to_app , size: 30,),
-              title: Text("Exit" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
-              onTap: (){
-                Navigator.pop(context);
-              },
-            ),
-
-            ListTile(
-              leading: Icon(Icons.logout , size: 30,),
-              title: Text("Logout" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
+              leading:const Icon(Icons.logout , size: 30, color: Colors.orange),
+              title:const Text("Logout" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
                 Navigator.pop(context);
               },
