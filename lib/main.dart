@@ -18,6 +18,7 @@ import 'package:explore_world/screen/splash_screen.dart';
 import 'package:explore_world/screen/start_screen.dart';
 import 'package:explore_world/screen/support_screen.dart';
 import 'package:explore_world/screen/user_screen.dart';
+import 'package:explore_world/screen/user_update_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen()
+      home: const UserUpdateScreen()
     );
   }
 }

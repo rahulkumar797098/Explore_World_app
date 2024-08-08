@@ -1,5 +1,4 @@
 import 'package:explore_world/colors.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatefulWidget {
@@ -15,7 +14,7 @@ class _SearchState extends State<Search> {
     return Container(
       width: double.infinity,
       height: 60,
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         children: [
           Expanded(
