@@ -1,6 +1,7 @@
 import 'package:explore_world/colors.dart';
 import 'package:explore_world/screen/login_and_signup/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class StartScreen extends StatefulWidget {
   const StartScreen({super.key});
@@ -117,22 +118,27 @@ class _StartScreenState extends State<StartScreen> {
             ),
           ),
 
-          const Positioned(
+           Positioned(
               bottom: 30,
               left: 170,
               right: 0,
-              child: Text(
-                "Skip",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: "myFontFirst",
-                  color: appWhite,
-                  shadows: [
-                    Shadow(
-                        color: Colors.black,
-                        blurRadius: 5,
-                        offset: Offset(2.0, 2.0))
-                  ],
+              child: InkWell(
+                onTap: (){
+                  SystemNavigator.pop();
+                },
+                child: const Text(
+                  "Skip",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontFamily: "myFontFirst",
+                    color: appWhite,
+                    shadows: [
+                      Shadow(
+                          color: Colors.black,
+                          blurRadius: 5,
+                          offset: Offset(2.0, 2.0))
+                    ],
+                  ),
                 ),
               )),
         ],

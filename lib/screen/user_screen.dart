@@ -141,39 +141,52 @@ class _UserScreenState extends State<UserScreen> {
             delegate: SliverChildListDelegate(
               [
                 // User Image
-                Center(
-                  child: Container(
-                    height: 120,
-                    width: 120,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        boxShadow: const [
-                          BoxShadow(
-                              color: appDeep, blurRadius: 5, offset: Offset(1.0, 1.5))
-                        ],
-                        image: const DecorationImage(
-                            image: AssetImage("assets/icon/devrahul.jpg"),
-                            fit: BoxFit.cover)),
-                  ),
-                ),
-                const SizedBox(height: 10),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(
-                      "Hi",
-                      style: TextStyle(
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "myFontFirst"),
+                    Center(
+                      child: Container(
+                        height: 130,
+                        width: 130,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            boxShadow: const [
+                              BoxShadow(
+                                  color: appDeep, blurRadius: 5, offset: Offset(1.0, 1.5))
+                            ],
+                            image: const DecorationImage(
+                                image: AssetImage("assets/icon/devrahul.jpg"),
+                                fit: BoxFit.cover)),
+                      ),
                     ),
-                    SizedBox(width: 10),
-                    Text(
-                      "Rahul Kumar",
-                      style: TextStyle(fontSize: 30, fontFamily: "myFontFirst"),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Rahul Kumar",
+                          style: TextStyle(fontSize: 30, fontFamily: "myFontFirst"),
+                        ),
+                        Row(
+                          children: [
+                            Image.asset("assets/icon/globe.png" , height: 20, width: 20,) ,
+                            const SizedBox(width: 10,),
+                            const Text("India" , style: TextStyle(fontSize: 25 , fontWeight: FontWeight.bold ),),
+
+                          ],
+                        ) ,
+                        const Row(
+                          children: [
+                            Text("Age : " , style: TextStyle(fontSize:22, fontFamily: "myFontFirst")),
+                            Text("22" , style: TextStyle(fontSize:22,fontWeight: FontWeight.bold , fontFamily: "myFontFirst")),
+                          ],
+                        )
+                      ],
                     ),
+
                   ],
                 ),
+                const SizedBox(height: 10),
+
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -218,7 +231,7 @@ class _UserScreenState extends State<UserScreen> {
                         Column(
                           children: [
                             Image.asset(
-                              "assets/icon/globe.png",
+                              "assets/icon/world_map.png",
                               height: 30,
                               width: 30,
                             ),
@@ -252,7 +265,7 @@ class _UserScreenState extends State<UserScreen> {
                         Column(
                           children: [
                             Image.asset(
-                              "assets/icon/india.png",
+                              "assets/icon/state.png",
                               height: 30,
                               width: 30,
                             ),
