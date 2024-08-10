@@ -1,3 +1,4 @@
+import 'package:explore_world/screen/about_screen.dart';
 import 'package:explore_world/screen/all_state/kerla/adventureScreen.dart';
 import 'package:explore_world/screen/all_state/kerla/beachScreen.dart';
 import 'package:explore_world/screen/all_state/kerla/foodScreen.dart';
@@ -46,7 +47,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const SplashScreen()
+      home:const BottomNavigationScreen()
     );
   }
 }

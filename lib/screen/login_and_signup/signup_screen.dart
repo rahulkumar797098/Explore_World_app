@@ -1,6 +1,8 @@
 import 'package:explore_world/colors.dart';
+import 'package:explore_world/screen/bottom_navigation_screen.dart';
 import 'package:explore_world/screen/login_and_signup/login_screen.dart';
 import 'package:explore_world/service/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -372,11 +374,30 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ),
                               ),
                             ),
+                            // Google Button
+                            // Google Button
                             SizedBox(
                               height: 50,
                               width: 50,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () async {
+                                  User? user = await _authService.signInWithGoogle();
+                                  if (user != null) {
+                                    // Handle successful Google sign-in
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text("Google Sign-In Successful")),
+                                    );
+                                    Navigator.pushReplacement(
+                                      context,
+                                      MaterialPageRoute(builder: (context) => const BottomNavigationScreen()),
+                                    );
+                                  } else {
+                                    // Handle Google sign-in failure
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(content: Text("Google Sign-In Failed")),
+                                    );
+                                  }
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
@@ -392,6 +413,8 @@ class _SignupScreenState extends State<SignupScreen> {
                                 ),
                               ),
                             ),
+
+
                             SizedBox(
                               height: 50,
                               width: 50,

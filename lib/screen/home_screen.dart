@@ -1,11 +1,14 @@
 import 'package:explore_world/screen/beach_screen_main.dart';
 import 'package:explore_world/screen/camp_screen_main.dart';
+import 'package:explore_world/screen/login_and_signup/login_screen.dart';
 import 'package:explore_world/screen/mountain_screen_main.dart';
 import 'package:explore_world/screen/support_screen.dart';
 import 'package:explore_world/screen/user_screen.dart';
 import 'package:explore_world/widgets/image_slider.dart';
 import 'package:explore_world/widgets/search.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 
 
 
@@ -33,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -242,7 +246,10 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: const Icon(Icons.share , size: 30, color: Colors.orange ),
               title:const Text("Refer & Earn" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
-                Navigator.pop(context);
+                Share.share(
+                  'Check out this amazing app: https://play.google.com/store/apps/details?id=com.yourapp.package',
+                  subject: 'Explore World App',
+                );
               },
             ) ,
             ListTile(
@@ -263,7 +270,7 @@ class _HomeScreenState extends State<HomeScreen> {
               leading:const Icon(Icons.support_agent_outlined , size: 30, color: Colors.orange),
               title:const Text("Support" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SupportScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SupportScreen()));
               },
             ) ,
             ListTile(
@@ -276,8 +283,10 @@ class _HomeScreenState extends State<HomeScreen> {
             ListTile(
               leading:const Icon(Icons.logout , size: 30, color: Colors.orange),
               title:const Text("Logout" , style: TextStyle(fontSize: 20 , fontWeight: FontWeight.bold),),
-              onTap: (){
-                Navigator.pop(context);
+              onTap: () async {
+                await FirebaseAuth.instance.signOut();
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+
               },
             )
 

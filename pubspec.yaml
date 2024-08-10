@@ -46,6 +46,16 @@ dependencies:
   permission_handler: ^10.0.0
   google_maps_flutter: ^2.2.0
   image_picker: ^1.1.2
+#  app share
+  share_plus: ^10.0.0
+  #  Dash Chat package use for chat ui create easily
+  dash_chat_2: ^0.0.21
+  http: ^1.2.1
+
+#  redirect on other app and website
+  url_launcher: ^6.1.7
+  external_app_launcher: ^4.0.0
+
 
 
 dev_dependencies:
