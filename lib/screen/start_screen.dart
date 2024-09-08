@@ -65,7 +65,7 @@ class _StartScreenState extends State<StartScreen> {
             child: InkWell(
               onTap: () {
                 Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const LoginScreen()));
+                    MaterialPageRoute(builder: (context) =>  LoginScreen()));
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +89,7 @@ class _StartScreenState extends State<StartScreen> {
                       Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
+                              builder: (context) =>  LoginScreen()));
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: appColor,

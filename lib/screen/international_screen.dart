@@ -1,7 +1,7 @@
-import 'package:explore_world/widgets/International_banner.dart';
 import 'package:explore_world/widgets/search.dart';
 import 'package:flutter/material.dart';
 import '../colors.dart';
+import '../widgets/International_banner.dart';
 
 class InternationalScreen extends StatefulWidget {
   const InternationalScreen({super.key});

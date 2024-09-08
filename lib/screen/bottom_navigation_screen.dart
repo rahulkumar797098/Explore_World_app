@@ -8,7 +8,7 @@ import 'favorits_screen.dart';
 
 
 class BottomNavigationScreen extends StatefulWidget {
-  const BottomNavigationScreen({super.key});
+
 
   @override
   State<BottomNavigationScreen> createState() => _BottomNavigationScreenState();

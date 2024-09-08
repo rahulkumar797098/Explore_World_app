@@ -43,7 +43,7 @@ class _SignupScreenState extends State<SignupScreen> {
     if (result != null) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        MaterialPageRoute(builder: (context) =>  LoginScreen()),
       );
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -380,30 +380,13 @@ class _SignupScreenState extends State<SignupScreen> {
                               height: 50,
                               width: 50,
                               child: ElevatedButton(
-                                onPressed: () async {
-                                  User? user = await _authService.signInWithGoogle();
-                                  if (user != null) {
-                                    // Handle successful Google sign-in
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text("Google Sign-In Successful")),
-                                    );
-                                    Navigator.pushReplacement(
-                                      context,
-                                      MaterialPageRoute(builder: (context) => const BottomNavigationScreen()),
-                                    );
-                                  } else {
-                                    // Handle Google sign-in failure
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(content: Text("Google Sign-In Failed")),
-                                    );
-                                  }
-                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
                                   padding: EdgeInsets.zero,
                                 ),
+                                onPressed: () {  },
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child: Image.asset(
@@ -457,7 +440,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => const LoginScreen()),
+                                    builder: (context) =>  LoginScreen()),
                               );
                             },
                             style: OutlinedButton.styleFrom(

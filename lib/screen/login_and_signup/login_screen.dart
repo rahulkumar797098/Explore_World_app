@@ -5,7 +5,7 @@ import 'package:explore_world/service/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // Navigate to BottomNavigationScreen on success
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const BottomNavigationScreen()),
+        MaterialPageRoute(builder: (context) =>  BottomNavigationScreen()),
       );
     } else {
       // Show error message
